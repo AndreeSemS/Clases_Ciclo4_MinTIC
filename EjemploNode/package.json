@@ -1,0 +1,19 @@
+{
+  "name": "ejemplo_node",
+  "version": "1.0.0",
+  "description": "Primer proyecto con Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreesinS/Ciclo4_MisionTIC.git"
+  },
+  "author": "andree",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  }
+}
