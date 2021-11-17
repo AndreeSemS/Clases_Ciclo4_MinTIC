@@ -1,9 +1,9 @@
-from twilio.rest import Client
+import os
 from flask import Flask
 from flask import request
+from twilio.rest import Client
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-import os
 
 app=Flask(__name__)
 
@@ -15,7 +15,6 @@ def inicio():
 @app.route("/sms")
 def sms():
     try:
-    
         account_sid = os.environ["TWILIO_ACCOUNT_SID"]
         auth_token = os.environ["TWILIO_ACCOUNT_TOKEN"]
         client = Client(account_sid, auth_token)
@@ -26,7 +25,7 @@ def sms():
         message = client.messages \
             .create(
                 body = contenido,
-                from_ = "+12057936631",
+                from_ = "+18506085733",
                 to = "+57"+destino
             )
         
@@ -35,7 +34,6 @@ def sms():
     
     except Exception as e:
         return "No se pudo enviar el sms"
-    
     
 @app.route("/email")
 def correo():
@@ -61,6 +59,6 @@ def correo():
     except Exception as e:
         print(e.message)
         return "No se pudo enviar el correo"
-   
+
 if __name__ == "__main__":
     app.run()
